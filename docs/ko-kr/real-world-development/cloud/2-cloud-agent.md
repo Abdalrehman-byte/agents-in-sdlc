@@ -102,11 +102,11 @@ jobs:
 2. **Issues** 탭을 선택합니다.
 3. **New issue**를 선택하여 새 이슈 대화 상자를 엽니다.
 4. **Blank issue**를 선택합니다.
-5. **Title**에 `코드에 문서가 부족합니다`를 입력합니다.
+5. **Title**에 `Code lacks documentation`를 입력합니다.
 6. **Description**에 다음을 입력합니다.
 
     ```plaintext
-    우리 조직에서는 함수와 메서드에 도움이 되는 경우 TSDoc 문서 주석을 포함하도록 요구합니다. 안타깝게도 최근 업데이트에서 이 표준이 지켜지지 않았습니다. 동작을 명확히 하는 경우 문서 주석이 포함되도록 기존 코드를 업데이트해야 합니다.
+    Our organization has a requirement that functions and methods include TSDoc doc comments where helpful. Unfortunately, recent updates haven't followed this standard. We need to update the existing code to ensure doc comments are included where they clarify behavior.
     ```
 
 7. **Create**를 선택하여 이슈를 만듭니다.
@@ -146,17 +146,17 @@ GitHub Copilot cloud agent의 장점 중 하나는 작업을 나눌 수 있다�
 2. **Issues** 탭을 선택합니다.
 3. **New issue**를 선택하여 새 이슈 대화 상자를 엽니다.
 4. **Blank issue**를 선택합니다.
-5. **Title**에 `게임 상세 페이지에 관련 게임 표시`를 입력합니다.
+5. **Title**에 `Show related games on the game details page`를 입력합니다.
 6. **Description**에 다음을 입력합니다.
 
     ```markdown
-    사용자가 더 많은 게임을 발견할 수 있도록 각 게임 상세 페이지에 관련 게임을 표시하려고 합니다. 디자인 팀은 사용자 경험을 살펴보고 인수 테스트를 수행하려고 합니다. 요구 사항은 다음과 같습니다.
+    We want to help people discover more games by showing related games on each game's details page. The design team wants to explore the UX and do some acceptance testing. Our requirements are:
 
-    - `src/lib/`에 지정한 게임을 제외하고 같은 카테고리의 다른 게임을 반환하는 데이터 접근 도우미를 추가합니다.
-    - 해당 도우미를 사용하는 "관련 게임" 섹션을 게임 상세 페이지에 표시합니다.
-    - 관련 게임이 없는 경우를 처리합니다.
-    - 새 도우미에 대한 단위 테스트를 작성합니다.
-    - PR을 만들기 전에 모든 테스트가 통과하는지 확인합니다.
+   - Add a data-access helper in `src/lib/` that returns other games in the same category as a given game, excluding that game
+   - Show a "Related games" section on the game details page that uses the helper
+   - Handle the case where a game has no related games
+   - There should be unit tests created for the new helper
+   - Before creating the PR, ensure all tests pass
     ```
 
 7. **Create**를 선택하여 이슈를 만듭니다.

@@ -97,7 +97,7 @@ Copilot 에이전트 모드는 IDE에서 더 자율적으로 작업하도록 설
 3. 다음 프롬프트를 보내 Copilot에 이슈 백로그를 보여 달라고 요청합니다.
 
    ```plaintext
-   내 GitHub 리포지토리의 백로그 항목을 보여 주세요. 사용자에게 가장 유용한 항목을 기준으로 우선순위를 정하는 데 도움을 주세요.
+   Please show me the backlog of items from my GitHub repository. Help me prioritize them based on those which will be most useful to the user.
    ```
 
 4. **Continue**를 선택해 모든 이슈를 나열하는 명령을 실행합니다.
@@ -141,7 +141,7 @@ Copilot에 코드를 생성하도록 요청하기 전에 작업에 필요한 컨
 5. 백로그의 관련 이슈를 기준으로 기능을 구현하도록 Copilot에 다음을 요청합니다.
 
    ```plaintext
-   백로그의 관련 GitHub 이슈 요구 사항에 따라 사이트에 퍼블리셔 및 카테고리 필터링을 추가해 주세요. 이전 연습에서 퍼블리셔 도우미를 만들었으므로 기존 작업을 유지하고 필요하면 개선하면서 데이터 계층, UI, 테스트를 완성해 주세요. 모든 테스트가 통과하는지 확인해 주세요. 서버가 이미 실행 중이므로 다시 시작하지 않아도 됩니다.
+   Please update the site to include filtering by publisher and category based on the requirements from the related GitHub issue in the backlog. A publishers helper already exists from the previous exercise, so preserve and refine that work as needed while completing the remaining data-layer, UI, and tests. Ensure all tests are passing before completion. The server is already running, so you do not need to start it up.
    ```
 
 6. Copilot이 프로젝트를 살펴보고 기능과 관련된 파일을 찾는 과정을 확인합니다. 데이터 계층 도우미, UI, 테스트 파일을 찾아 변경하고 테스트를 실행합니다.

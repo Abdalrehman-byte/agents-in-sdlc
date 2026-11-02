@@ -91,6 +91,6 @@ CLI ワークショップを締めくくるために、[振り返りと次のス
 
 [overview]: ../
 [previous-lesson]: ../2-build-and-deploy/
-[review]: ../../9-review/
-[playwright-lesson]: ../../4-mcp/
+[review]: ../../10-review/
+[playwright-lesson]: ../../6-mcp-playwright/
 [cleanup]: ../#リソースをクリーンアップする

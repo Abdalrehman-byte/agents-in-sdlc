@@ -42,9 +42,9 @@ Copilot Chat 보기에는 에이전트가 살펴보는 파일, 실행하는 명�
 
 1. Copilot Chat 입력에 다음 후속 프롬프트를 보냅니다.
 
-   ```plaintext
-   잘했습니다! 이제 고대비 토글과 함께 밝은 모드 토글도 추가해 주세요. 밝은 모드도 동일한 방식으로 로컬 스토리지에 설정을 유지하고 UI의 같은 영역에서 사용할 수 있어야 합니다. 사용자가 고대비 모드와 밝은 모드를 서로 독립적으로 활성화할 수 있어야 합니다.
-   ```
+    ```plaintext
+    Nice work! Now add a light-mode toggle alongside the high-contrast toggle. Light mode should follow the same pattern — persist via local storage and be accessible from the same area of the UI. The user should be able to enable high-contrast and light mode independently.
+    ```
 
 2. 에이전트가 이전 변경 사항을 살펴보고 밝은 모드 기능을 제안하는 과정을 확인합니다.
 3. 고대비 모드와 마찬가지로 새 편집 내용을 검토하고 각 diff에서 **Keep** 또는 **Undo**를 선택합니다.

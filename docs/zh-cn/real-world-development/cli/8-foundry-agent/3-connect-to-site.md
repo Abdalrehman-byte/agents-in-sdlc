@@ -91,6 +91,6 @@ Tailspin Toys 采用完全预渲染方式。浏览器代码绝不能直接调用
 
 [overview]: ../
 [previous-lesson]: ../2-build-and-deploy/
-[review]: ../../9-review/
-[playwright-lesson]: ../../4-mcp/
+[review]: ../../10-review/
+[playwright-lesson]: ../../6-mcp-playwright/
 [cleanup]: ../#清理资源

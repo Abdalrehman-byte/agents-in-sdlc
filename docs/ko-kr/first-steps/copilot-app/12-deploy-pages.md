@@ -23,7 +23,7 @@ Space Quiz는 이미 GitHub 리포지토리에 있지만, 누구나 간단히 �
 `space-quiz`의 Copilot app 세션에서 다음 프롬프트를 보냅니다.
 
 ```plaintext
-이 리포지토리에서 GitHub Pages를 활성화해 주세요. 필요한 경우 웹사이트를 빌드하고 GitHub Pages에 배포하는 GitHub Actions 워크플로를 만들어 주세요. 아직 README가 없다면 앱 소개와 로컬 실행 방법을 설명하는 README를 추가해 주세요. 변경 사항으로 풀 리퀘스트를 만들고 필수 검사가 통과하면 병합해 주세요. 배포가 성공할 때까지 모니터링한 다음 실제 웹사이트의 최종 URL을 알려 주세요. Pages를 활성화하거나 병합할 권한이 없다면 제가 무엇을 승인하거나 해야 하는지 정확히 알려 주세요. 사이트가 실제로 게시되기 전까지 성공했다고 보고하지 마세요.
+Enable GitHub Pages for this repository. Create a GitHub Actions workflow that builds the website if needed and deploys it to GitHub Pages. Add a README describing the app and how to run it locally if one does not already exist. Create a pull request with these changes and merge it after required checks pass. Monitor the deployment until it succeeds, then report the final URL of the live website. If you lack permission to enable Pages or merge, tell me exactly what I need to approve or do; do not report success until the site is live.
 ```
 
 ![Space Quiz 풀 리퀘스트 병합, Build website·Upload artifact·Deploy to Pages 단계가 성공한 GitHub Actions 배포 실행, yourname.github.io/space-quiz/에서 열린 Space Quiz를 보여 주는 3단계 다이어그램](../../../_images/first-steps-app-pages-deploy.svg)

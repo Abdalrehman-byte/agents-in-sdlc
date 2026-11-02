@@ -129,7 +129,7 @@ Tailspin Toys 후원자는 카테고리와 퍼블리셔로 게임을 필터링�
 20. 동일한 세션에 다음 프롬프트를 입력합니다.
 
     ```plaintext
-    Microsoft Foundry 스킬을 사용하여 에이전트를 만들지 않고 tailspin-toys 프로젝트에 배포한 모델을 직접 테스트합니다. @db/catalog.json의 콘텐츠를 근거로 "버그를 추적하는 퍼즐 게임을 좋아합니다. 어떤 게임을 후원해야 하며, 얼마나 많은 자금을 모았나요?"라고 질문합니다. 응답과 사용한 토큰 수, 응답 시간 등의 유용한 메타데이터를 확인할 수 있는 경우에만 표시합니다. 기존 Azure 로그인을 사용합니다. 자격 증명을 표시하거나 파일을 변경하거나 리소스를 만들지 않습니다.
+    Use the Microsoft Foundry skill to test my deployed model directly in the tailspin-toys project without creating an agent. Ground it with content from @db/catalog.json and ask: "I love puzzle games about tracking down bugs. What should I back, and how much funding has it raised?" Show me the response and useful metadata such as tokens used and response time, only if available. Use my existing Azure sign-in. Do not display credentials, change files, or create resources.
     ```
 
 21. 응답을 검토합니다. `db/catalog.json`에 실제로 있는 게임만 추천하고 올바른 제목, 퍼블리셔, 평점을 사용하며 자금 조달 정보가 없다고 설명해야 합니다. 모델이 게임, 카탈로그 세부 정보 또는 자금 조달 금액을 지어내면 계속하기 전에 다른 추천 모델과 비교합니다.

@@ -34,7 +34,7 @@ Copilot cloud agent는 감독 없이 비동기적으로 작업하므로 안전�
 
 1. github.com의 리포지토리로 돌아갑니다.
 2. **Pull Requests**를 선택하여 PR 목록을 엽니다.
-3. 제목이 **누락된 문서 추가** 또는 이와 비슷한 풀 리퀘스트를 엽니다.
+3. 제목이 **Add missing documentation** 또는 이와 비슷한 풀 리퀘스트를 엽니다.
 
 > [!NOTE]
 > Copilot이 아직 작업 중이면 PR에 **[WIP]** 표시가 있습니다. Copilot이 작업을 완료할 때까지 기다립니다. 몇 분 정도 걸릴 수 있으므로 잠시 쉬거나 지금까지 배운 내용을 돌아봐도 좋습니다.
@@ -82,7 +82,7 @@ Copilot과 풀 리퀘스트에서 협업할 때 댓글로 Copilot을 태그할 �
 
 1. GitHub.com의 리포지토리로 돌아갑니다.
 2. **Pull Requests** 탭을 선택합니다.
-3. 제목이 **게임 상세 페이지에 관련 게임 표시** 또는 이와 비슷한 PR을 선택합니다.
+3. 제목이 **Show related games on the game details page** 또는 이와 비슷한 PR을 선택합니다.
 4. **Files changed** 탭을 선택하여 Copilot이 작성한 코드를 검토합니다.
 5. 업데이트를 검토하고 문제가 없으면 **Conversation** 탭으로 돌아가 아래로 스크롤합니다.
 6. 승인을 기다리는 워크플로가 있다는 표시가 있는지 확인합니다.
@@ -106,7 +106,7 @@ Copilot이 관련 게임 기능을 만들었습니다. 이전처럼 Copilot clou
 
 1. GitHub.com의 리포지토리로 돌아갑니다.
 2. **Pull Requests** 탭을 선택합니다.
-3. 제목이 **웹사이트에 고대비 모드 추가** 또는 이와 비슷한 PR을 선택합니다.
+3. 제목이 **Add high contrast mode to website** 또는 이와 비슷한 PR을 선택합니다.
 
 > [!NOTE]
 > Copilot이 아직 작업 중이면 PR에 **[WIP]** 표시가 있습니다. Copilot이 작업을 완료할 때까지 기다립니다. 몇 분 정도 걸릴 수 있습니다.

@@ -37,6 +37,7 @@ Tailspin Toys에는 실제 카탈로그 질문에 답하고, 정보가 없으면
    ```
 
 3. `azd config show`를 실행하여 Azure 구독을 확인합니다. 비어 있거나 올바르지 않으면 `azd config set defaults.subscription <subscription-id>`로 업데이트한 후 `azd config show`를 다시 실행하여 변경 내용을 확인합니다.
+
 ## Backer Concierge 기본 구조 생성
 
 Canvas는 Backer Concierge를 기존 모델 배포에 연결하는 코드, 폴더 구조, 루트 `azure.yaml`을 생성합니다.

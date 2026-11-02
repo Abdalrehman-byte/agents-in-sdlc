@@ -42,7 +42,7 @@ Tailspin Toys의 각 게임에는 별점이 있을 수 있으며, 별점은 이�
 5. 다음 프롬프트로 변경을 요청합니다.
 
    ```plaintext
-   목록 페이지의 게임 카드에 각 게임의 starRating을 5점 만점으로 표시해 주세요. 별점이 null이면 "No rating yet"를 표시합니다. 카드 레이아웃은 그대로 유지하고 테스트를 추가한 뒤 관련 검사를 실행해 주세요.
+   Show each game's starRating out of 5 in the game cards on the list page. If the rating is null, show "No rating yet". Keep the card layout as it is, add tests, and run the relevant checks.
    ```
 
 Copilot은 프로젝트를 살펴보고 게임 세부 정보를 표시하는 파일을 찾아 필요한 코드를 작성합니다. Copilot CLI로 새 기능을 추가했습니다.
@@ -67,7 +67,7 @@ Copilot은 프로젝트를 살펴보고 게임 세부 정보를 표시하는 파
 1. Copilot에 앱을 시작하도록 요청합니다.
 
    ```plaintext
-   브라우저에서 별점 변경을 확인할 수 있도록 앱을 시작해 주세요. URL을 알려 주고 서버는 계속 실행 상태로 두세요.
+   Start the app so I can inspect the star-rating change in my browser. Tell me the URL and leave the server running.
    ```
 
 2. Codespaces에서 포트 `4321`을 사용할 수 있다고 표시되면 **Open in Browser**를 선택합니다.
@@ -75,7 +75,7 @@ Copilot은 프로젝트를 살펴보고 게임 세부 정보를 표시하는 파
 4. Copilot으로 돌아가 시작한 서버를 중지하도록 요청합니다.
 
    ```plaintext
-   시작한 개발 서버를 중지해 주세요.
+   Stop the development server you started.
    ```
 
 ## 첫 풀 리퀘스트 열기 및 병합하기
@@ -85,7 +85,7 @@ Copilot은 프로젝트를 살펴보고 게임 세부 정보를 표시하는 파
 1. 기본 에이전트에 변경 사항을 커밋하도록 요청합니다.
 
    ```plaintext
-   검토한 별점 변경 사항을 적절한 커밋 메시지로 커밋해 주세요.
+   Commit the reviewed star-rating changes with an appropriate commit message.
    ```
 
 2. `/pr create`를 입력합니다. Copilot CLI는 PR을 만들 때 기존 커밋을 푸시하고 PR URL을 표시합니다.

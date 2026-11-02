@@ -76,9 +76,9 @@ VS Code의 Copilot Chat 보기 하단에 있는 에이전트 드롭다운에는 
 3. 사용 가능한 에이전트 목록에서 **Accessibility agent**를 선택합니다.
 4. 접근성 에이전트에 다음 프롬프트를 보냅니다.
 
-   ```plaintext
-   사이트에 고대비 모드를 추가해 주세요. 사용자가 켜고 끌 수 있는 고대비 토글이 있어야 하며, 브라우저의 로컬 스토리지(local storage)를 사용해 페이지를 다시 로드한 뒤에도 설정이 유지되어야 합니다.
-   ```
+    ```plaintext
+    Add a high-contrast mode to the site. There should be a toggle for high contrast which the user can set, and the setting should persist across page reloads using local storage on the browser.
+    ```
 
 5. Copilot Chat이 코드베이스를 살펴보고 변경 사항을 제안한 뒤 프로젝트 파일에 적용합니다. 각 편집 내용은 파일 경로 및 검토할 수 있는 diff와 함께 채팅에 표시됩니다.
 6. 편집이 적용되면 **Files changed** 표시에서 에이전트가 수정한 파일 목록이 갱신됩니다.

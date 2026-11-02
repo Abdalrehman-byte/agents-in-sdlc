@@ -3,7 +3,7 @@ slug: ja-jp/real-world-development/app
 title: "GitHub Copilot app"
 authors:
   - geektrainer
-lastUpdated: 2026-09-17
+lastUpdated: 2026-10-22
 ---
 
 [**GitHub Copilot app**](https://docs.github.com/copilot/concepts/agents/github-copilot-app) は Copilot CLI を基盤とするデスクトップアプリケーションで、エージェント主導の開発を単一の作業用ワークスペースで実現します。並列エージェントセッション、切り替え可能なセッションモード、共有キャンバス、GitHub Issue と pull request のネイティブ管理機能を備えています。さらに、リベース、レビューのフィードバック、継続的インテグレーション (CI) の修正、マージまで pull request を導く **Agent Merge** も利用できます。
@@ -18,7 +18,7 @@ lastUpdated: 2026-09-17
 6. Playwright Model Context Protocol (MCP) server を追加し、ブラウザーでフィルター機能を確認します。
 7. 品質保証 (QA) カスタムエージェントを作成し、要件、カバレッジ、検証の証拠をレビューします。
 8. フィルター機能の変更全体をレビューし、2つ目の PR に Agent Merge を使用します。
-9. 既存の Database Explorer キャンバスを使用してから、リポジトリに保存するトリアージキャンバスを作成してテストします。
+9. キャンバスが利用可能か確認し、Database Explorer を使用した後、リポジトリに保存するトリアージキャンバスを作成してテストします。必要な機能を利用できない場合は、ブロッカーを記録し、読み取り専用の代替手段を使うか、まとめのレッスンに進みます。
 
 ワークショップの焦点を絞るため、作成する PR は2つです。1つ目は星評価、2つ目はフィルター機能と、指示・スキル・QA プロファイル・テストの更新です。それぞれ更新済みの `main` から開始します。フィルター機能と品質に関するワークフローでは1つのセッション、worktree、ブランチを共有するため、各ツールを確認しながら、それまでの作業を活用できます。最後のキャンバス演習はそのセッション内に保持し、PR ワークフローを繰り返すのではなく、共有サーフェスの作成とテストに集中します。
 
@@ -53,7 +53,7 @@ lastUpdated: 2026-09-17
 > Copilot app は codespace ではなく自分のコンピューターで実行するため、[レッスン 0][ex0] では、アプリをインストールする前に Node.js をインストールし、プロジェクトの自分用コピーを作成します。
 
 > [!NOTE]
-> Copilot Business または Copilot Enterprise を使用している場合、アプリを使用するには管理者が **Copilot CLI** ポリシーを有効にする必要があります。
+> Copilot Business または Copilot Enterprise を使用している場合、アプリを使用するには管理者が **GitHub Copilot app** ポリシーを有効にする必要があります。これは Copilot CLI ポリシーとは別の設定です。
 
 ## はじめる
 

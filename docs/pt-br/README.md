@@ -40,4 +40,4 @@ Escolha entre o GitHub Copilot CLI, o aplicativo GitHub Copilot, o agente de nuv
 [first-steps-app]: first-steps/copilot-app/
 [first-steps-cli]: first-steps/copilot-cli/
 [first-steps-vscode]: first-steps/vscode/
-[real-world-development]: ../real-world-development/
+[real-world-development]: real-world-development/

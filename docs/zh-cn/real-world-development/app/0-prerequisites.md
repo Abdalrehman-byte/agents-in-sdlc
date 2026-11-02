@@ -3,7 +3,7 @@ title: "第 0 课 - 先决条件"
 description: "为 GitHub Copilot app 课程做好准备：为 Tailspin Toys 项目安装 Node.js，并通过模板创建自己的存储库副本。"
 authors:
   - geektrainer
-lastUpdated: 2026-06-30
+lastUpdated: 2026-10-22
 ---
 
 GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央枢纽。它支持快速访问议题和拉取请求，也支持使用 GitHub Copilot 进行构建。在本研讨会中，你将在本地使用基于 Astro 构建的 Tailspin Toys 应用和 GitHub Copilot app。开始前，请先确保本地已安装 Node.js，然后再安装 Copilot app。
@@ -24,9 +24,10 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 
     ```shell
     node --version
+    npm --version
     ```
 
-3. 如果满足项目 README 和 `package.json` 中的要求，可以跳到下一节。
+3. 如果这两个命令都能成功运行，且 Node.js 版本符合项目 README 和 `package.json` 中的要求，可以跳到下一节。
 
 > [!TIP]
 > 仅当尚未安装 Node 或需要更新时，才需要完成以下步骤。
@@ -39,9 +40,13 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 
     ```bash
     node --version
+    npm --version
     ```
 
-9. 应显示刚安装的版本。
+9. 应显示刚安装的 Node.js 和 npm 版本。
+
+> [!IMPORTANT]
+> Copilot app 中的智能体也必须能够运行 `node --version` 和 `npm --version`。常用终端中运行成功并不保证应用也能使用这些命令。安装 Node.js 或更改 PATH 后，请完全退出并重新打开应用。如果会话中仍有任何一个命令运行失败，请先按照[会话环境故障排除步骤][session-environment]操作，再继续。
 
 > [!IMPORTANT]
 > 每个工作树还需要项目依赖项及用于 E2E 检查的 Playwright Chromium。准备工作树时，请遵循 Tailspin Toys 存储库的 README，并在批准前审查所有安装请求。
@@ -86,3 +91,4 @@ GitHub Copilot app 是一款桌面应用，作为 Copilot 和 GitHub 的中央�
 [node-download]: https://nodejs.org/en/download
 [template-repository]: https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-template-repository
 [about-copilot-app]: https://docs.github.com/copilot/concepts/agents/github-copilot-app
+[session-environment]: ../3-agent-modes/#从议题启动会话

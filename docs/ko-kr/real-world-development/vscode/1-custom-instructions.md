@@ -115,7 +115,7 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 4. 다음 프롬프트를 입력합니다.
 
    ```plaintext
-   src/lib/publishers.ts에 이름과 ID를 포함한 모든 퍼블리셔 목록을 반환하는 데이터 접근 도우미를 만들거나 업데이트해 주세요. 파일에 변경 사항을 적용해 주세요.
+   Create or update src/lib/publishers.ts with a data-access helper that returns a list of all publishers with the name and id for each. Apply the file changes.
    ```
 
 5. Copilot이 프로젝트를 살펴보고 도우미 파일과 테스트 등을 업데이트합니다.
@@ -134,8 +134,8 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 3. 기존 표준 바로 아래에 다음 Markdown을 추가하여 파일 머리 주석과 TSDoc 문서 주석을 요청합니다.
 
    ```markdown
-   - 내보내는 모든 함수에는 목적, 매개 변수, 반환 값을 설명하는 TSDoc 주석을 작성합니다.
-   - 가져오기 구문이나 코드 앞에 파일의 목적을 설명하는 주석 블록을 추가합니다.
+   - Every exported function should have a TSDoc comment describing its purpose, parameters, and return value.
+   - Before imports or any code, add a comment block to the file that explains its purpose.
    ```
 
 4. `copilot-instructions.md`를 저장합니다.
@@ -150,7 +150,7 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 3. 이전과 **동일한 프롬프트**를 입력합니다.
 
    ```plaintext
-   src/lib/publishers.ts에 이름과 ID를 포함한 모든 퍼블리셔 목록을 반환하는 데이터 접근 도우미를 만들거나 업데이트해 주세요. 파일에 변경 사항을 적용해 주세요.
+   Create or update src/lib/publishers.ts with a data-access helper that returns a list of all publishers with the name and id for each. Apply the file changes.
    ```
 
 4. 제안된 파일 맨 위에 다음과 비슷한 주석 블록이 추가되었는지 확인합니다.
@@ -212,7 +212,7 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 3. Copilot에 지침 파일 업데이트와 필터링 작업을 위한 퍼블리셔 도우미를 설명하는 PR을 현재 브랜치에서 만들고 해당 이슈를 해결하도록 요청합니다.
 
    ```
-   지침 파일 업데이트와 관련된 이슈를 찾아 주세요. 현재 브랜치에서 새 PR을 만들고 해당 이슈를 해결한다고 명시해 주세요. 다음 필터링 작업을 위한 퍼블리셔 도우미 기반을 추가한 내용도 포함해 주세요.
+   Find the issue related to updating the instructions file. Create a new PR from the current branch, highlight that the PR closes that issue, and include that we also added the publishers helper foundation for the upcoming filtering work.
    ```
 
 4. Copilot이 이슈를 찾고 PR을 만드는 과정을 살펴봅니다.
@@ -220,7 +220,7 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 6. PR이 만들어지면 Copilot에 병합한 뒤 로컬 브랜치를 `main`으로 전환하도록 요청합니다.
 
    ```
-   PR을 main에 병합해 주세요. 그런 다음 로컬에서 main으로 돌아가 최신 코드를 가져와 최신 상태로 맞춰 주세요.
+   Merge the PR into main. Then return to main locally, and pull the latest code so we are up to date.
    ```
 
 7. Copilot이 GitHub 작업과 셸 명령을 수행하도록 **Allow**를 요청하면 명령을 검토하고 허용할지 결정합니다.

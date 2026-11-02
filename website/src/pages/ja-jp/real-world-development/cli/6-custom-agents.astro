@@ -1,0 +1,18 @@
+---
+const target = `${import.meta.env.BASE_URL}ja-jp/real-world-development/cli/7-qa-agent/`;
+const canonical = new URL(target, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="ja-JP" data-pagefind-ignore>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <title>QA エージェントの作成と使用にリダイレクトします</title>
+  </head>
+  <body>
+    <a href={target}>このレッスンは移動しました。QA エージェントの作成と使用に進みます。</a>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+const target = `${import.meta.env.BASE_URL}pt-br/real-world-development/cli/3-agent-modes/`;
+const canonical = new URL(target, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="pt-BR" data-pagefind-ignore>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <title>Redirecionando para os modos do agente</title>
+  </head>
+  <body>
+    <a href={target}>Esta lição foi movida. Continue para os modos do agente: Plan e Autopilot.</a>
+  </body>
+</html>

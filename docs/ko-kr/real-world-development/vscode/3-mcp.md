@@ -102,14 +102,14 @@ Playwright MCP 서버는 스크린샷 대신 페이지의 [접근성 트리][pla
 서버를 연결하고 앱을 실행한 뒤 Copilot에 필터링 기능을 테스트하도록 요청합니다.
 
 ```text
-Playwright MCP 서버를 사용해 실행 중인 앱(http://localhost:4321)에서 브라우저를 열고 새 게임 필터링 기능을 확인해 주세요.
+Using the Playwright MCP server, open a browser to the running app at http://localhost:4321 and verify the new game filtering feature:
 
-1. 게임 페이지로 이동해 표시된 게임 수를 확인합니다.
-2. 카테고리 필터를 적용하고 해당 카테고리의 게임만 표시되는지 확인합니다.
-3. 카테고리 필터를 해제한 다음 퍼블리셔 필터를 적용하고 해당 퍼블리셔의 게임만 표시되는지 확인합니다.
-4. 카테고리와 퍼블리셔 필터를 함께 적용하고 결과에 두 조건이 모두 반영되는지 확인합니다.
+1. Go to the games page and note how many games are listed.
+2. Apply a category filter and confirm the list updates to only show games in that category.
+3. Clear it, then apply a publisher filter and confirm the list updates to that publisher.
+4. Combine a category and a publisher filter and confirm the results respect both.
 
-각 단계에서 확인한 내용을 보고하고 예상대로 동작하지 않는 항목을 알려 주세요.
+Report what you observe at each step, and call out anything that does not behave as expected.
 ```
 
 Copilot은 Playwright MCP 서버로 브라우저를 시작하고 각 단계를 수행한 뒤 결과를 보고합니다. 보고서를 이슈의 수락 기준과 비교합니다. 문제가 있다면 풀 리퀘스트를 열기 전에 후속 질문을 하거나 코드를 수정하도록 요청합니다.
@@ -140,7 +140,7 @@ github.com 또는 GitHub CLI를 비롯해 여러 방법으로 풀 리퀘스트�
 3. Copilot에 PR을 만들도록 요청합니다.
 
    ```plaintext
-   리포지토리에서 카테고리와 퍼블리셔로 필터링하는 이슈를 찾아 주세요. 현재 브랜치에서 새 풀 리퀘스트를 만들고 올바른 이슈와 연결해 주세요.
+   Find the issue in the repo related to filtering by category and publisher. Create a new pull request for the current branch, and associate it with the correct issue.
    ```
 
 4. Copilot이 정보를 수집하고 작업을 수행할 수 있도록 메시지가 표시되면 **Continue**를 선택합니다. GitHub 도구를 처음 사용할 때 GitHub 인증을 요청할 수 있으므로 안내를 따릅니다.

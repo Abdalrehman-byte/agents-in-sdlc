@@ -88,7 +88,7 @@ Plan 모드에서 시작해 계획을 검토한 뒤 Autopilot으로 구현합니
 2. 이전 단계에서 추가한 이슈 참조 뒤에 다음 프롬프트를 입력합니다.
 
    ```plaintext
-   이 기능을 구현하기 위한 계획을 작성해 주세요.
+   Create a plan for implementing this feature.
    ```
 
 Copilot은 프로젝트를 살펴본 다음 가장 적절한 접근 방식을 결정해 계획을 작성합니다.
@@ -128,7 +128,7 @@ Autopilot 모드에서는 Copilot이 작업을 완료했다고 판단할 때까�
 1. Copilot에 앱을 시작하도록 요청합니다.
 
    ```plaintext
-   브라우저에서 필터링 기능을 확인할 수 있도록 앱을 시작해 주세요. URL을 알려 주고 서버는 계속 실행 상태로 두세요.
+   Start the app so I can try the filtering feature in my browser. Tell me the URL and leave the server running.
    ```
 
 2. Codespaces에서 포트 `4321`을 사용할 수 있다고 표시되면 **Open in Browser**를 선택합니다.

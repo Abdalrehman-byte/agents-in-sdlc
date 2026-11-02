@@ -1,0 +1,18 @@
+---
+const target = `${import.meta.env.BASE_URL}es-es/real-world-development/cli/10-review/`;
+const canonical = new URL(target, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="es-ES" data-pagefind-ignore>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <title>Redirigiendo al resumen y los siguientes pasos</title>
+  </head>
+  <body>
+    <a href={target}>Esta lección se ha movido. Continúa con el resumen y los siguientes pasos.</a>
+  </body>
+</html>

@@ -101,8 +101,8 @@ Tailspin Toys에는 개발 관행에 관한 표준과 요구 사항이 있습니
 3. 기존 표준 바로 아래에 다음 Markdown을 추가하여 파일 머리 주석과 TSDoc 문서 주석을 요청합니다.
 
    ```markdown
-   - 내보내는 모든 함수에는 목적, 매개 변수, 반환 값을 설명하는 TSDoc 주석을 작성합니다.
-   - 가져오기 구문이나 코드를 작성하기 전에 파일의 목적을 설명하는 주석 블록을 추가합니다.
+   - Every exported function should have a TSDoc comment describing its purpose, parameters, and return value.
+   - Before imports or any code, add a comment block to the file that explains its purpose.
    ```
 
 4. `copilot-instructions.md`를 저장합니다.
