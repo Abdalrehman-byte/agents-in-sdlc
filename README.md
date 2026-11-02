@@ -1,0 +1,65 @@
+# Copilot Workshops — Workshop Content
+
+Workshop content for **Copilot Workshops**, with guided first-step experiences and real-world development scenarios across Copilot CLI, VS Code agent mode, the GitHub Copilot app, and the Copilot cloud agent.
+
+The published site lives at **<https://github-samples.github.io/copilot-workshops/>**.
+
+> [!NOTE]
+> The real-world development workshops use Tailspin Toys, a pure-Astro crowdfunding site (SSR, API endpoints, and a Drizzle data layer) that lives in a separate repository: **<https://github.com/github-samples/tailspin-toys>**. First steps workshops may guide learners in creating a small project from scratch. This repository holds only the workshop content: lesson Markdown, images, and the Astro + Starlight site that publishes them.
+
+## Start the workshop
+
+Visit the published site: <https://github-samples.github.io/copilot-workshops/>.
+
+## Authoring
+
+If you want to add or edit content, start with **[AUTHORING.md](./AUTHORING.md)**. It has the mental model, file map, and step-by-step recipes for adding lessons and images.
+
+For PR/CI rules, see **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
+
+## Repository structure
+
+- **`docs/`** — **Lesson source (plain Markdown). Edit here.** Browsable directly on github.com, no build required.
+  - `README.md` — Workshop landing page (also the published site's home via `slug: index`).
+  - `first-steps/` — Guided introductory workshops for the GitHub Copilot app, GitHub Copilot CLI, and VS Code, adapted from James Montemagno's [First Steps with GitHub Copilot](https://github.com/jamesmontemagno/first-steps-with-github-copilot) (MIT).
+  - `real-world-development/` — Scenario-based workshops organized by environment: `cli/`, `vscode/`, `cloud/`, and `app/`.
+  - `es-es/`, `ja-jp/`, `ko-kr/`, `pt-br/`, `zh-cn/` — Translated locale trees that mirror available English category and workshop paths.
+  - `_images/` — Screenshots and diagrams (shared across all locales).
+- **`website/`** — Optional Astro + Starlight site that publishes `docs/` to GitHub Pages. Only needed to self-host or preview the rendered site.
+  - `astro.config.mjs` — Site URL, base path, `locales` block, sidebar.
+  - `src/content.config.ts` — Content loader (`base: '../docs'`).
+  - `src/pages/shared/0-prereqs.astro` — Full-HTML redirect forwarding the legacy `/shared/0-prereqs/` URL to the home page.
+- **`AUTHORING.md`** — Author entry point (recipes for adding/editing content).
+- **`CONTRIBUTING.md`** — PR flow + CI requirements.
+- **`.github/`**
+  - `copilot-instructions.md` + `instructions/*.md` — Authoring guidance for Copilot.
+  - `agents/`, `skills/` — Custom agents and skills available to Copilot in this repo.
+  - `workflows/pages.yml` — Builds and deploys the site on pushes to `main`.
+
+## Local development
+
+From the repo root:
+
+```bash
+cd website
+npm install
+npm run dev
+```
+
+The site runs at <http://localhost:4321/copilot-workshops/>.
+
+## Verification
+
+Before opening a PR, follow the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill for type checks, a clean build, inspection of affected pages, and offline link checking. See [AUTHORING.md](./AUTHORING.md#building-and-verifying) for authoring context.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
+
+## Maintainers
+
+See [CODEOWNERS](./.github/CODEOWNERS).
+
+## Support
+
+Provided as-is. Open an issue if you have questions.

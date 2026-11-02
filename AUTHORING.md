@@ -1,0 +1,170 @@
+# Authoring Guide
+
+This is the entry point for **content authors and maintainers** of **Copilot Workshops**. If you arrived here looking to *take* the workshop, head to the published site at <https://github-samples.github.io/copilot-workshops/>.
+
+## Project overview model
+
+- **All lesson content is plain Markdown** under the repo-root `docs/` directory. That's the source of truth, and it's browsable directly on github.com with no build required.
+- **Optional publisher.** The Astro + Starlight site in `website/` builds the published GitHub Pages site from those Markdown files (loader `base: '../docs'`). You only need it to self-host or preview the rendered pages.
+- **Reusable prose is copied inline.** There is no import-based shared content system; keep duplicated lesson sections aligned with the content-alignment safety nets described below.
+
+```
+copilot-workshops/
+├── docs/                        ← Markdown source. EDIT HERE. Browsable on github.com.
+│   ├── README.md                ← Workshop landing page (also site home via slug: index)
+│   ├── first-steps/             ← Guided introductory workshops
+│   │   ├── copilot-app/         ← GitHub Copilot app tour
+│   │   ├── copilot-cli/         ← GitHub Copilot CLI first steps
+│   │   └── vscode/              ← Visual Studio Code first steps
+│   ├── real-world-development/  ← Scenario workshops organized by environment
+│   │   ├── cli/                 ← Copilot CLI lessons, including the optional 8-foundry-agent/ series
+│   │   ├── vscode/              ← VS Code lessons, including the optional 7-foundry-toolkit/ series
+│   │   ├── cloud/               ← Cloud agent lessons
+│   │   └── app/                 ← GitHub Copilot app lessons
+│   ├── es-es/ ja-jp/ ...        ← Translated locale trees mirroring source paths
+│   └── _images/                 ← Screenshots and diagrams (shared across locales)
+├── website/                     ← Optional Astro + Starlight publisher
+│   ├── astro.config.mjs         ← Site URL, base path, locales, sidebar
+│   └── src/content.config.ts    ← Content loader (base: '../docs')
+└── .github/
+    ├── copilot-instructions.md   ← AI authoring guide (humans can read it too)
+    ├── instructions/             ← Per-file-type conventions (auto-applied to Copilot)
+    └── workflows/                ← CI for site build + Pages deploy, plus content-alignment workflow
+```
+
+## Step-by-step recipes
+
+### Add a new lesson
+
+1. **Pick a category, workshop, and number.** Lessons live under `docs/<category>/<workshop>/N-name.md`. `N` is the next available integer in that workshop; the number drives the URL slug (`/real-world-development/cli/3-agent-modes/`). A longer optional exercise can use `N-name/README.md` for its overview and numbered modules inside that folder. Preserve the entry URL with the overview's `slug`, keep the core review as the default next destination, and place the optional sidebar group after it.
+2. **Create the file** with frontmatter:
+   ```markdown
+   ---
+   title: "Exercise N - Short descriptive title"
+   ---
+
+   Body starts here.
+   ```
+   Only `title` is required; it becomes the H1 and the page title. Don't add a body H1 — Starlight renders the title automatically.
+3. **Write the body.** Follow the [lesson pattern](#lesson-pattern), using Markdown and GitHub admonition syntax (`> [!NOTE]`) for callouts. See **Style essentials** below.
+4. **Add prev/next navigation.** Define `[previous-lesson]` and `[next-lesson]` reference links at the bottom of the page, pointing at the adjacent lessons in the same path:
+   ```markdown
+   [previous-lesson]: ../2-add-star-rating/
+   [next-lesson]: ../4-custom-instructions/
+   ```
+   Then surface them in the body using **the same style as the other lessons in your path** — don't mix styles within a path:
+   - **Woven into prose** (common in the CLI path): end the lesson with a sentence like ``the next step is to [create the PR][next-lesson]``.
+   - **Explicit nav table** (common in the cloud and VS Code paths): a single-cell table just below the frontmatter and again at the end of the body.
+     ```markdown
+     | [← Previous lesson: Custom instructions][previous-lesson] |
+     |:--|
+     ```
+     ```markdown
+     | [Next lesson: Custom agents →][next-lesson] |
+     |--:|
+     ```
+   The first lesson in a path omits `[previous-lesson]`; the last omits `[next-lesson]`.
+5. **Register in the sidebar.** Open `website/astro.config.mjs` and add an entry to the appropriate `items: []` block. The sidebar is *manually* maintained — order in the file is the order learners see.
+6. **Preview and verify, then open a PR.** Preview locally and run the verification sequence before committing — see [Building and verifying](#building-and-verifying) below. CI runs type checks, the Astro build, and the lychee link check; all must pass.
+
+### Lesson pattern
+
+Use the same teaching flow across harnesses without forcing identical exercises or wording:
+
+1. **Introduction and objectives.** Connect to the previous work and give a short list of what the learner will do.
+2. **Scenario.** Before the technical explanation or steps, use a `## Scenario` section to explain the Tailspin Toys need and why this task matters.
+3. **Concepts and guided work.** Explain new concepts where needed, then use task-specific headings and ordered steps. Keep prompts next to the actions they support.
+4. **Review and verification.** Tell the learner what to inspect, what evidence to expect, and how to handle failures before moving on. This can be part of the guided steps rather than a separate section.
+5. **Summary and next steps.** Briefly connect the completed work to the next module, making the branch, session, checkpoint, or PR handoff clear where relevant. Add a Resources section when useful.
+
+Prerequisite modules use setup goals and a readiness check instead of an artificial feature scenario. Final recap modules review outcomes and further learning rather than introduce a new task. Landing pages remain workshop overviews. Preserve harness-specific controls and workflow boundaries, and mirror structural changes in existing translations.
+
+### Landing pages (folder `README.md`)
+
+Every folder's landing page is a `README.md` so it renders directly when someone browses that folder on github.com. Because Starlight normally derives a folder's index route from an `index.md`, each landing carries an explicit `slug:` in its frontmatter that reproduces the route:
+
+- `docs/README.md` → `slug: index` (site home `/`).
+- `docs/<category>/README.md` → `slug: <category>` (e.g. `slug: first-steps` → `/first-steps/`).
+- `docs/<category>/<workshop>/README.md` → `slug: <category>/<workshop>` (e.g. `slug: real-world-development/app` → `/real-world-development/app/`).
+- `docs/<locale>/README.md` → `slug: <locale>` (e.g. `slug: es-es` → `/es-es/`).
+- `docs/<locale>/<category>/<workshop>/README.md` → `slug: <locale>/<category>/<workshop>` (e.g. `slug: es-es/real-world-development/app` → `/es-es/real-world-development/app/`).
+- Nested lesson overviews follow the same rule: `docs/real-world-development/app/8-foundry-canvas/README.md` → `slug: real-world-development/app/8-foundry-canvas`; localized copies include the locale prefix. Numbered modules live beside the overview and retain nested routes. Links between lessons resolve from the published route, while image paths resolve from the Markdown source file.
+
+When you add a new harness or locale landing, name it `README.md` and set its `slug:` to match the folder path. Localized landings must use the locale-prefixed slug, never the English one.
+
+### Optional multi-module series
+
+An optional series can live in a lesson subfolder, such as `docs/real-world-development/cli/8-foundry-agent/`, `docs/real-world-development/vscode/7-foundry-toolkit/`, or `docs/real-world-development/app/8-foundry-canvas/`, with a `README.md` overview and numbered module files. The overview slug matches the complete category, workshop, and series path. The sidebar groups its overview and modules under the optional series title after the core workshop lessons.
+
+Each module has its own objectives, story-focused scenario, numbered instructions, completion checkpoint, and next-module handoff. Shared cleanup instructions live on the overview and are linked from every module so learners can stop at any checkpoint. When moving a lesson into a subfolder, adjust image paths and navigation links for the extra directory level, and keep existing localized entry links aligned; missing module translations use the site's English fallback.
+
+### Add an image
+
+1. **Drop the file** in `docs/_images/` (or a workshop-scoped `_images/` directory when the image is specific to one workshop). Use lowercase-with-hyphens filenames; prefix with `shared-` if the image is referenced from multiple workshops.
+2. **Reference it** with a relative path from the consuming Markdown page:
+   ```markdown
+   ![Description of the screenshot](../_images/my-screenshot.png)
+   ```
+3. **Always include alt text.** Starlight treats the alt text as required.
+4. **Preview locally** to confirm the image resolves.
+
+### Edit an existing lesson
+
+1. **Find the file** under `docs/` (use the published URL as a hint — `/real-world-development/cli/3-agent-modes/` lives at `docs/real-world-development/cli/3-agent-modes.md`).
+2. **Edit the Markdown.** Same conventions apply — see **Style essentials** below.
+3. **Preview** with `npm run dev` in `website/`.
+4. **Commit, PR, merge.**
+
+### Reuse prose across paths
+
+When the same lesson text applies to multiple harnesses (CLI, VS Code, Cloud), copy the prose inline into each consuming `.md` lesson. There is intentionally no single-source import layer: each lesson should be readable and editable as standalone Markdown.
+
+Because copied prose can drift, run the `check-content-alignment` skill when you change a duplicated section so it can scan the diff for related content that needs the same update. The `.github/workflows/content-alignment.md` agentic workflow runs the same analysis on PRs as an additional safety net, but authors still own keeping aligned copies consistent.
+
+## Building and verifying
+
+Use the [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill for preview commands and pre-commit verification: type checks, a clean build, inspection of affected pages and translations, and offline link checking. Expected output comes from the current source and site configuration, not a fixed page total.
+
+**What CI enforces vs. what you run locally:** CI (`pages.yml`) runs **`check:all`**, the **build**, and the **lychee** link check on every PR. It does not run browser validation or the content-alignment agentic workflow as part of the Pages build job. After merge to `main`, `pages.yml` deploys the site to GitHub Pages.
+
+**Consistency pass.** When a change renames a file or folder, adds or removes a skill or instruction file, touches duplicated prose, or changes how the build works, also sweep for stale references — the structure trees and cross-doc pointers in `README.md`, `AUTHORING.md`, and `.github/copilot-instructions.md` aren't checked by the Astro build. The [`build-and-verify-docs`](./.github/skills/build-and-verify-docs/SKILL.md) skill has the full checklist, and the `check-content-alignment` skill plus `.github/workflows/content-alignment.md` help catch prose that needs aligned updates.
+
+## Style essentials
+
+A short cheat sheet. For deeper conventions, see [`.github/instructions/`](./.github/instructions/).
+
+- **Reference-style links** for in-workshop pages and external docs. Define refs at the bottom of the page:
+  ```markdown
+  See [Exercise 1][exercise-1] for context. The [Copilot CLI docs][cli-docs] explain.
+
+  [exercise-1]: ../1-install-copilot-cli/
+  [cli-docs]: https://docs.github.com/copilot/github-copilot-in-the-cli
+  ```
+- **Admonitions everywhere use GitHub syntax** — published lessons *and* repo docs. The `[!TYPE]` marker goes on its own quoted line, body on following quoted lines:
+  ```markdown
+  > [!NOTE]
+  > Use NOTE, TIP, IMPORTANT, WARNING, or CAUTION.
+  ```
+  In published lessons under `docs/`, a remark plugin (wired in `website/astro.config.mjs`) converts these to Starlight asides at build time. GitHub syntax has no custom-title or nesting form, so put a heading on a **bold lead-in line** (`> **Title**`, then a blank `>` line, then the body), and emit "nested" callouts as sibling blockquotes separated by a blank line. See [`markdown.instructions.md`](.github/instructions/markdown.instructions.md) for the full mapping and patterns.
+- **No hard-wrapping** in repo-level Markdown files (READMEs, this file). Editors soft-wrap. Hard breaks are reserved for actual structural breaks.
+- **Cross-repo links** (the demo app): always use `https://github.com/github-samples/tailspin-toys/...`. Don't link to files in *this* repo as if they were the template.
+
+## Troubleshooting
+
+- **"Module not found: `@astrojs/starlight/components`"** — run `npm install` inside `website/` if the site shell imports a Starlight component.
+- **Sidebar entry doesn't appear** — confirm you added it to `website/astro.config.mjs` (it's manually maintained).
+- **A new page appears in build output unexpectedly** — confirm the file belongs in the content collection and that underscore-prefixed support directories such as `_images/` are still excluded by `website/src/content.config.ts`.
+- **Lychee reports a broken link** — most often a renamed lesson breaking a `[ref]: ../old-name/` definition. Update both the link target and any cross-page refs.
+
+## Deeper conventions
+
+The `.github/instructions/*.md` files have `applyTo` frontmatter that targets specific file globs. Read these when you need depth on a specific area:
+
+- [`markdown.instructions.md`](./.github/instructions/markdown.instructions.md) — Markdown conventions: no hard-wrap, admonitions, headings, filenames/UI formatting, and link style.
+- [`markdown-accessibility.instructions.md`](./.github/instructions/markdown-accessibility.instructions.md) — accessibility conventions: descriptive links, alt text, heading hierarchy, plain language, input-agnostic action verbs (**select** not "click").
+- [`astro.instructions.md`](./.github/instructions/astro.instructions.md) — `website/` site wrapper.
+- [`instructions.instructions.md`](./.github/instructions/instructions.instructions.md) — how to write and maintain the instruction files themselves.
+
+Reusable task playbooks (build/verify, browser validation, contribution flow, content alignment) live as **skills** under `.github/skills/` — see the [skills index](./.github/skills/README.md) for what each one does and when to use it.
+
+For the AI authoring playbook, see [`.github/copilot-instructions.md`](./.github/copilot-instructions.md).
